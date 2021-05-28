@@ -1,8 +1,6 @@
 package de.IchMagOmasKekse.simulation;
 
-import de.IchMagOmasKekse.Chat;
 import de.IchMagOmasKekse.GameLoop;
-import de.IchMagOmasKekse.simulation.generation.Generation;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
 
 import java.awt.*;
@@ -10,8 +8,8 @@ import java.awt.*;
 public class Simulation {
 
     public static final int cellSize = 5;
-    public static boolean start = false;
-    public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0, currentlyLiving = 0;
+    public static boolean start = false, isGenerated = false;
+    public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0, currentlyLiving = 0, oldestCell = 0;
 
     public Simulation() {
         // Calculating amount of cells in x and y.
@@ -34,12 +32,13 @@ public class Simulation {
 
     public static void nextGeneration() {
         GenerationManager.updateGenerations();
-        generations+=1;
     }
 
     public static String editTitle(String t) {
-        return t.replace("GEN", "Generation: " + generations)
-                .replace("LIVING", "Living Cells: " + currentlyLiving);
+        return t.replace("WORLDSIZE", "w/h:  " + xAmountOfCells+"/"+yAmountOfCells)
+                .replace("GEN", "Generation: " + generations)
+                .replace("LIVING", "Living Cells: " + currentlyLiving)
+                .replace("OLDEST", "Oldest Cell: " + oldestCell);
     }
 
 }

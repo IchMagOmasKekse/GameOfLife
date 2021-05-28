@@ -20,10 +20,11 @@ public class GameLoop extends Canvas implements Runnable {
     private boolean isPaused = false; //Ist das Spiel pausiert?
     public static boolean isLegalTick = false; //Ist der aktuelle tick auf TickSpeed Höhe ?
     private static int fps = 0;
-    private int maxFps = 120, tickspeed = 5;
+    private int maxFps = 120;
+    public int tickspeed = 5;
     private Thread thread;
     private Window window;
-    public String windowTitle = "FPS GEN LIVING"; // Replacements
+    public String windowTitle = "FPS WORLDSIZE GEN LIVING OLDEST"; // Replacements
 
     /* Instances */
     public static KeyInput keyInput;

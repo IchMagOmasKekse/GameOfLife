@@ -13,15 +13,25 @@ public class Generation {
 
     public Generation(boolean generateCells) {
         if(generateCells) {
+            Color c = null;
             for(int x = 0; x != Simulation.xAmountOfCells; x++) {
                 for(int y = 0; y != Simulation.yAmountOfCells; y++) {
-                    cells.put(x+"/"+y, new Cell(x, y, false));
+                    c = new Color(GenerationManager.inputImage.getRGB(x, y));
+                    if(c.getRed() + c.getGreen() + c.getBlue() == 765) cells.put(x+"/"+y, new Cell(x, y, true));
+                    else cells.put(x+"/"+y, new Cell(x, y, false));
                 }
             }
+            //for(int x = 0; x != Simulation.xAmountOfCells; x++) {
+                //for(int y = 0; y != Simulation.yAmountOfCells; y++) {
+                    //cells.put(x+"/"+y, new Cell(x, y, false));
+                //}
+            //}
+            Simulation.isGenerated = true;
         }
     }
 
     public boolean render(Graphics g) {
+        if(!GenerationManager.readyToRender) return false;
         for(String pos : cells.keySet()) if(!cells.get(pos).isAlive()) cells.get(pos).render(g);
         for(String pos : cells.keySet()) if(cells.get(pos).isAlive())cells.get(pos).render(g);
         return true;

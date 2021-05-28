@@ -5,6 +5,7 @@ import java.awt.*;
 public enum GameColor {
 
     LIVING(new Color(0, 181, 3, 255)),
+    OLDEST(new Color(195, 255, 0, 255)),
     BACKGROUND(new Color(0, 51, 161, 255)),
     GRID(new Color(13, 60, 161, 255));
 

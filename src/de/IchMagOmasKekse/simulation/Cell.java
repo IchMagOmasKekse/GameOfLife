@@ -35,14 +35,21 @@ public class Cell {
 
         } else if (alive == 3) willBeAlive = true;
 
+        if(willBeAlive) survived++;
+        else survived = 0;
+
+        if(Simulation.oldestCell < survived) Simulation.oldestCell = survived;
+        else if(Simulation.oldestCell == survived && !willBeAlive) Simulation.oldestCell = 0;
         GenerationManager.nextGeneration.cells.put(x + "/" + y, new Cell(x, y, willBeAlive));
+        GenerationManager.nextGeneration.cells.get(x + "/" + y).survived = survived;
         Simulation.currentlyLiving += (willBeAlive ? 1 : 0);
     }
 
     public void render(Graphics g) {
         if (isAlive) {
+            if(Simulation.oldestCell == survived) g.setColor(GameColor.OLDEST.getColor());
+            else g.setColor(GameColor.LIVING.getColor());
 
-            g.setColor(GameColor.LIVING.getColor());
             g.fillRect((x * Simulation.cellSize), (y * Simulation.cellSize), Simulation.cellSize, Simulation.cellSize);
         } else {
             g.setColor(GameColor.GRID.getColor());
@@ -71,6 +78,7 @@ public class Cell {
 
     public void die() {
         this.isAlive = false;
+        if(Simulation.oldestCell == survived) Simulation.oldestCell = 0;
     }
 
     public void switchLifeState() {

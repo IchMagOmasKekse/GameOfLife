@@ -44,16 +44,14 @@ public class MouseInput extends MouseAdapter {
     }
 
     @Override
-    public void mouseWheelMoved(MouseWheelEvent e) {
-        super.mouseWheelMoved(e);
-    }
+    public void mouseWheelMoved(MouseWheelEvent e) { }
 
     public void pressKey(int key) {
         if (!pressedButtons.contains(key)) pressedButtons.add(key);
-        if (Simulation.generations == 0) Simulation.nextGeneration();
+        if (Simulation.isGenerated && Simulation.generations == 0) Simulation.nextGeneration();
         switch (key) {
             case MouseEvent.BUTTON1://BUTTON1 = Linke Maustaste
-                if(GenerationManager.readyToRender) {
+                if (GenerationManager.readyToRender && Simulation.isGenerated) {
                     GenerationManager.readyToRender = false;
                     if (KeyInput.isControlling) { // birth
                         GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).birth();
