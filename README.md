@@ -1,4 +1,4 @@
-# Game Of Life
+# Game Of Life by John Horton Conway
 
 ------------------------------------------------------------------------
 Version 1.0
