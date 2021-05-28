@@ -36,6 +36,7 @@ public class Cell {
         } else if (alive == 3) willBeAlive = true;
 
         GenerationManager.nextGeneration.cells.put(x + "/" + y, new Cell(x, y, willBeAlive));
+        Simulation.currentlyLiving += (willBeAlive ? 1 : 0);
     }
 
     public void render(Graphics g) {

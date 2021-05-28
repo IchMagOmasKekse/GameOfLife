@@ -11,7 +11,7 @@ public class Simulation {
 
     public static final int cellSize = 5;
     public static boolean start = false;
-    public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0;
+    public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0, currentlyLiving = 0;
 
     public Simulation() {
         // Calculating amount of cells in x and y.
@@ -38,7 +38,8 @@ public class Simulation {
     }
 
     public static String editTitle(String t) {
-        return t.replace("2", "Generation: " + generations);
+        return t.replace("GEN", "Generation: " + generations)
+                .replace("LIVING", "Living Cells: " + currentlyLiving);
     }
 
 }

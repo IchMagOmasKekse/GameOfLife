@@ -39,7 +39,6 @@ public class Generation {
         GenerationManager.readyToRender = false;
         this.cells.clear();
         for(String pos : gen.cells.keySet()) cells.put(pos, gen.cells.get(pos));
-        Chat.sendConsoleMessage("Copied Generation.");
         GenerationManager.readyToRender = true;
     }
 

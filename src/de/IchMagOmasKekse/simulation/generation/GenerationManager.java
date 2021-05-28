@@ -16,6 +16,7 @@ public class GenerationManager {
     }
 
     public static void updateGenerations() {
+        Simulation.currentlyLiving = 0;
         currentGeneration.update();
         currentGeneration.copy(nextGeneration);
     }

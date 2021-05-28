@@ -23,7 +23,7 @@ public class GameLoop extends Canvas implements Runnable {
     private int maxFps = 120, tickspeed = 5;
     private Thread thread;
     private Window window;
-    public String windowTitle = "1 2"; // Replacements
+    public String windowTitle = "FPS GEN LIVING"; // Replacements
 
     /* Instances */
     public static KeyInput keyInput;
@@ -134,7 +134,7 @@ public class GameLoop extends Canvas implements Runnable {
         Simulation.update();
 
 
-        window.getFrame().setTitle(Simulation.editTitle(windowTitle).replace("1 ", "FPS: "+fps+" "));
+        window.getFrame().setTitle(Simulation.editTitle(windowTitle).replace("FPS", "FPS: "+fps+" "));
     }
 
     public void asyncTick() {

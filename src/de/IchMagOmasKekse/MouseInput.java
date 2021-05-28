@@ -53,16 +53,18 @@ public class MouseInput extends MouseAdapter {
         if (Simulation.generations == 0) Simulation.nextGeneration();
         switch (key) {
             case MouseEvent.BUTTON1://BUTTON1 = Linke Maustaste
-                GenerationManager.readyToRender = false;
-                if (KeyInput.isControlling) { // birth
-                    GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).birth();
-                } else if (KeyInput.isAlting) { // kill
-                    GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).die();
-                } else {
-                    GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).switchLifeState();
-                    releaseKey(key);
+                if(GenerationManager.readyToRender) {
+                    GenerationManager.readyToRender = false;
+                    if (KeyInput.isControlling) { // birth
+                        GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).birth();
+                    } else if (KeyInput.isAlting) { // kill
+                        GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).die();
+                    } else {
+                        GenerationManager.currentGeneration.cells.get((mx / Simulation.cellSize) + "/" + (my / Simulation.cellSize)).switchLifeState();
+                        releaseKey(key);
+                    }
+                    GenerationManager.readyToRender = true;
                 }
-                GenerationManager.readyToRender = true;
                 break; //BUTTON1 = Linke Maustaste
             case MouseEvent.BUTTON2:
                 break; //BUTTON2 = Mausrad-Klick
