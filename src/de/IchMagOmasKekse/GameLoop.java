@@ -1,9 +1,11 @@
 package de.IchMagOmasKekse;
 
 import de.IchMagOmasKekse.simulation.Simulation;
+import de.IchMagOmasKekse.ui.UICHandler;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Set;
 
 public class GameLoop extends Canvas implements Runnable {
 
@@ -14,6 +16,7 @@ public class GameLoop extends Canvas implements Runnable {
     public static int halfWindowWidth = windowWidth / 2;
     public static int windowHeight = 900;
     public static int halfWindowHeight = windowHeight / 2;
+    public static final int ui_offset = 500;
 
     private boolean isRunning = false;
     private boolean isReadyToRender = false;
@@ -42,7 +45,7 @@ public class GameLoop extends Canvas implements Runnable {
     public GameLoop() {
         instance = this;
         setBackground(Color.BLACK);
-        window = new Window(windowWidth, windowHeight, "GameEngine Preset", this);
+        window = new Window(windowWidth+ui_offset, windowHeight, "GameEngine Preset", this);
 
         Functions.preInit();
         Functions.init();
@@ -72,6 +75,8 @@ public class GameLoop extends Canvas implements Runnable {
     }
 
 
+    static double amountOfTicks = 60.0;
+    static double ns = 0;
     @SuppressWarnings("unused")
     @Override
     public void run() {
@@ -80,8 +85,8 @@ public class GameLoop extends Canvas implements Runnable {
          */
         this.requestFocus();
         long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
+        amountOfTicks = 60.0;
+        ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
@@ -104,6 +109,11 @@ public class GameLoop extends Canvas implements Runnable {
             }
         }
         stop();
+    }
+
+    public static void setSpeed(double ticks) {
+        amountOfTicks = ticks;
+        ns = 1000000000 / amountOfTicks;
     }
 
     private int tick = 0;
@@ -133,6 +143,7 @@ public class GameLoop extends Canvas implements Runnable {
         keyInput.tick();
         mouseInput.tick();
         Simulation.update();
+        if(Settings.updateUICs) UICHandler.tick();
 
 
         window.getFrame().setTitle(Simulation.editTitle(windowTitle).replace("FPS", "FPS: "+fps+" "));
@@ -159,6 +170,7 @@ public class GameLoop extends Canvas implements Runnable {
         //TODO: Translated RENDERING
 
         Simulation.render(g);
+        if(Settings.showUICs) UICHandler.render(g);
 
         //ENDE
 

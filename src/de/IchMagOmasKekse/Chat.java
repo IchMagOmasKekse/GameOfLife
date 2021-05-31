@@ -19,6 +19,9 @@ public class Chat {
     public static void sendConsoleMessage(String... lines) {
         for(String line : lines) System.out.println("[" + current_date + "][" + current_time + "] " + line);
     }
+    public static void sendConsoleError(String... lines) {
+        for(String line : lines) System.err.println("[" + current_date + "][" + current_time + "] " + line);
+    }
 
     private static long last_time = -1l;
     public static void tick() {

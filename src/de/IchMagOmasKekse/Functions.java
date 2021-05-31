@@ -2,6 +2,7 @@ package de.IchMagOmasKekse;
 
 import de.IchMagOmasKekse.simulation.Simulation;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
+import de.IchMagOmasKekse.ui.UI;
 
 public class Functions {
 
@@ -17,6 +18,7 @@ public class Functions {
         new Chat();
         GameLoop.keyInput = new KeyInput();
         GameLoop.mouseInput = new MouseInput();
+        Simulation.textureAtlas = new TextureAtlas();
     }
 
     /**
@@ -33,6 +35,10 @@ public class Functions {
         GameLoop.getInstance().addMouseListener(GameLoop.mouseInput);
         GameLoop.getInstance().addMouseMotionListener(GameLoop.mouseInput);
         GameLoop.getInstance().addMouseWheelListener(GameLoop.mouseInput);
+
+        new UI();
+        UI.createUI();
+
         isReady = true;
     }
 

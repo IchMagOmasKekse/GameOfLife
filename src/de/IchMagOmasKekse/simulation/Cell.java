@@ -1,7 +1,7 @@
 package de.IchMagOmasKekse.simulation;
 
-import de.IchMagOmasKekse.Chat;
 import de.IchMagOmasKekse.GameColor;
+import de.IchMagOmasKekse.Numbers;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
 
 import java.awt.*;
@@ -9,19 +9,22 @@ import java.awt.*;
 public class Cell {
 
     private boolean isAlive = true;
-    private int survived = 0;
+    private int age = 0;
+    private int maxAge;
     private int x, y;
     private Color color = Color.WHITE;
 
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
+        maxAge = Numbers.randomInteger(80, 105);
     }
 
     public Cell(int x, int y, boolean isAlive) {
         this.x = x;
         this.y = y;
         this.isAlive = isAlive;
+        maxAge = Numbers.randomInteger(80, 105);
     }
 
     public void update() {
@@ -35,19 +38,21 @@ public class Cell {
 
         } else if (alive == 3) willBeAlive = true;
 
-        if(willBeAlive) survived++;
-        else survived = 0;
+        if(willBeAlive) age++;
+        else age = 0;
 
-        if(Simulation.oldestCell < survived) Simulation.oldestCell = survived;
-        else if(Simulation.oldestCell == survived && !willBeAlive) Simulation.oldestCell = 0;
+        if(Simulation.oldestCell < age) Simulation.oldestCell = age;
+        else if(Simulation.oldestCell == age && !willBeAlive) Simulation.oldestCell = 0;
         GenerationManager.nextGeneration.cells.put(x + "/" + y, new Cell(x, y, willBeAlive));
-        GenerationManager.nextGeneration.cells.get(x + "/" + y).survived = survived;
+        GenerationManager.nextGeneration.cells.get(x + "/" + y).age = age;
         Simulation.currentlyLiving += (willBeAlive ? 1 : 0);
+
+        if(age >= maxAge) die();
     }
 
     public void render(Graphics g) {
         if (isAlive) {
-            if(Simulation.oldestCell == survived) g.setColor(GameColor.OLDEST.getColor());
+            if(Simulation.oldestCell == age) g.setColor(GameColor.OLDEST.getColor());
             else g.setColor(GameColor.LIVING.getColor());
 
             g.fillRect((x * Simulation.cellSize), (y * Simulation.cellSize), Simulation.cellSize, Simulation.cellSize);
@@ -78,7 +83,7 @@ public class Cell {
 
     public void die() {
         this.isAlive = false;
-        if(Simulation.oldestCell == survived) Simulation.oldestCell = 0;
+        if(Simulation.oldestCell == age -1) Simulation.oldestCell = 0;
     }
 
     public void switchLifeState() {
