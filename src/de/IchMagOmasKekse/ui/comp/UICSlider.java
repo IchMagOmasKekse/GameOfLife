@@ -146,7 +146,7 @@ public class UICSlider extends UIC {
         sliderValueInPercent  = (int) (sliderPos / einPro);
         sliderValue = (int)((maxValue - minValue) * (sliderValueInPercent / 100)) + minValue;
 
-        GameLoop.setSpeed(sliderValue);
+        Settings.gameSpeed = sliderValue;
     }
 
     public static enum SliderType {

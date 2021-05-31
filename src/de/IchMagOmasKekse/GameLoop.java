@@ -5,7 +5,6 @@ import de.IchMagOmasKekse.ui.UICHandler;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.Set;
 
 public class GameLoop extends Canvas implements Runnable {
 
@@ -24,7 +23,6 @@ public class GameLoop extends Canvas implements Runnable {
     public static boolean isLegalTick = false; //Ist der aktuelle tick auf TickSpeed Höhe ?
     private static int fps = 0;
     private int maxFps = 120;
-    public int tickspeed = 5;
     private Thread thread;
     private Window window;
     public String windowTitle = "FPS WORLDSIZE GEN LIVING OLDEST"; // Replacements
@@ -75,8 +73,6 @@ public class GameLoop extends Canvas implements Runnable {
     }
 
 
-    static double amountOfTicks = 60.0;
-    static double ns = 0;
     @SuppressWarnings("unused")
     @Override
     public void run() {
@@ -85,8 +81,8 @@ public class GameLoop extends Canvas implements Runnable {
          */
         this.requestFocus();
         long lastTime = System.nanoTime();
-        amountOfTicks = 60.0;
-        ns = 1000000000 / amountOfTicks;
+        double amountOfTicks = 60.0;
+        double ns = 1000000000 / amountOfTicks;
         double delta = 0;
         long timer = System.currentTimeMillis();
         int frames = 0;
@@ -111,19 +107,14 @@ public class GameLoop extends Canvas implements Runnable {
         stop();
     }
 
-    public static void setSpeed(double ticks) {
-        amountOfTicks = ticks;
-        ns = 1000000000 / amountOfTicks;
-    }
-
     private int tick = 0;
     public void tick() {
-        if(tick != tickspeed) {
-            tick++;
-            isLegalTick = false;
-        }else {
+        if(tick >= Settings.gameSpeed) {
             isLegalTick = true;
             tick = 0;
+        }else {
+            isLegalTick = false;
+            tick++;
         }
         //TODO: TICK
 
@@ -142,7 +133,7 @@ public class GameLoop extends Canvas implements Runnable {
         Chat.tick();
         keyInput.tick();
         mouseInput.tick();
-        Simulation.update();
+        if(isLegalTick)  Simulation.update();
         if(Settings.updateUICs) UICHandler.tick();
 
 

@@ -6,6 +6,7 @@ public class Settings {
     public static boolean updateUICs = true;
     public static boolean showUICHitboxes = false;
     public static int doubleClickSpeed = 230; // Milliseconds
+    public static int gameSpeed = 5;
     public static double scorePerGeneration = 1.5; // Score per generation
 
 }
