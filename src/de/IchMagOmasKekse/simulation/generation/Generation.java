@@ -70,12 +70,16 @@ public class Generation {
     }
 
     public void birthCellAt(int x, int y) {
-        cells.get(x+"/"+y).birth();
-        Simulation.currentlyLiving++;
+        if(!cells.get(x+"/"+y).isAlive()) {
+            cells.get(x+"/"+y).birth();
+            Simulation.currentlyLiving++;
+        }
     }
     public void killCellAt(int x, int y) {
-        cells.get(x+"/"+y).die();
-        Simulation.currentlyLiving--;
+        if(cells.get(x+"/"+y).isAlive()) {
+            cells.get(x + "/" + y).die();
+            Simulation.currentlyLiving--;
+        }
     }
     public void switchLifeState(int x, int y) {
         cells.get(x+"/"+y).switchLifeState();

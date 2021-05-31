@@ -18,7 +18,7 @@ public class UICSlider extends UIC {
     private final int startAndEndBlock_height = 12;
     private final int sliderWidth = 4;
     private final int sliderHeight = 15;
-    private int sliderValue = 0;
+    protected int sliderValue = 0;
     private double sliderValueInPercent = 0;
     private final int minValue, maxValue;
     private int sliderPos = 0;
@@ -78,7 +78,7 @@ public class UICSlider extends UIC {
     public void draw(Graphics2D g) {
         g.setColor(Color.BLACK);
         g.setFont(font);
-        g.drawString(text + " = " + sliderValue, x, y - (font.getSize() / 2));
+        g.drawString(text, x, y - (font.getSize() / 2));
         g.setColor(Color.WHITE);
         g.fillRect(x, y, width, height);
         g.fillRect(x - (startAndEndBlock_width / 2), y - (startAndEndBlock_height / 2), startAndEndBlock_width, startAndEndBlock_height + height); // Left End
@@ -145,8 +145,6 @@ public class UICSlider extends UIC {
         int einPro = width / 100;
         sliderValueInPercent  = (int) (sliderPos / einPro);
         sliderValue = (int)((maxValue - minValue) * (sliderValueInPercent / 100)) + minValue;
-
-        Settings.gameSpeed = sliderValue;
     }
 
     public static enum SliderType {

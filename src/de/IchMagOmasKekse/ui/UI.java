@@ -39,7 +39,7 @@ public class UI {
         scoreDisplay.c_forecolor = Color.WHITE;
         canvas.add(scoreDisplay);
 
-        UICSlider slider = new UICSlider("Geschwindigkeit", 130, 25, 200, 3, 10, 120, UICSlider.SliderType.DEFAULT_50);
+        GameSpeedSlider slider = new GameSpeedSlider("Geschwindigkeit", 130, 25, 200, 3, 1, 60, UICSlider.SliderType.DEFAULT_50);
         canvas.add(slider);
     }
 
