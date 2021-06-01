@@ -1,6 +1,5 @@
 package de.IchMagOmasKekse.simulation.generation;
 
-import de.IchMagOmasKekse.Chat;
 import de.IchMagOmasKekse.simulation.Cell;
 import de.IchMagOmasKekse.simulation.Simulation;
 

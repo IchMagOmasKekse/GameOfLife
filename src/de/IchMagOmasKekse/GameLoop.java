@@ -11,9 +11,9 @@ public class GameLoop extends Canvas implements Runnable {
 
 
     /* de.IchMagOmasKekse.Window */
-    public static int windowWidth = 1200;
+    public static int windowWidth = 700; // Default 1200
     public static int halfWindowWidth = windowWidth / 2;
-    public static int windowHeight = 900;
+    public static int windowHeight = 500; // Default 900
     public static int halfWindowHeight = windowHeight / 2;
     public static final int ui_offset = 500;
 

@@ -6,8 +6,10 @@ public enum GameColor {
 
     LIVING(new Color(0, 181, 3, 255)),
     OLDEST(new Color(195, 255, 0, 255)),
-    BACKGROUND(new Color(0, 51, 161, 255)),
-    GRID(new Color(13, 60, 161, 255)),
+    BACKGROUND(new Color(40, 40, 40, 255)),
+    //BACKGROUND(new Color(0, 51, 161, 255)),
+    GRID(new Color(20, 20, 20, 255)),
+    //GRID(new Color(13, 60, 161, 255)),
     UIC_DISABLED(new Color(133, 133, 133, 255)),
     UIC_INFILL(new Color(168, 223, 255, 255)),
     UIC_BORDER(new Color(89, 194, 255, 255)),

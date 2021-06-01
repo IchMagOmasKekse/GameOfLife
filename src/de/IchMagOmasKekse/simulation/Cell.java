@@ -1,10 +1,12 @@
 package de.IchMagOmasKekse.simulation;
 
+
 import de.IchMagOmasKekse.GameColor;
 import de.IchMagOmasKekse.Numbers;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Cell {
 
@@ -13,6 +15,8 @@ public class Cell {
     private int maxAge;
     private int x, y;
     private Color color = Color.WHITE;
+    public static BufferedImage cellImg;
+    private int bloomSize = 10;
 
     public Cell(int x, int y) {
         this.x = x;
@@ -48,14 +52,24 @@ public class Cell {
         Simulation.currentlyLiving += (willBeAlive ? 1 : 0);
 
         if(age >= maxAge) die();
+
+        if(cellImg == null) cellImg = AgeManager.getAgeImage(age, maxAge);
     }
 
     public void render(Graphics g) {
         if (isAlive) {
-            if(Simulation.oldestCell == age) g.setColor(GameColor.OLDEST.getColor());
-            else g.setColor(GameColor.LIVING.getColor());
+            if(Simulation.oldestCell == age) {
+                g.setColor(GameColor.OLDEST.getColor());
+            } else {
+                g.setColor(GameColor.LIVING.getColor());
+            }
+
+            cellImg = AgeManager.getAgeImage(age, maxAge);
 
             g.fillRect((x * Simulation.cellSize), (y * Simulation.cellSize), Simulation.cellSize, Simulation.cellSize);
+            if(cellImg != null) g.drawImage(cellImg, x * Simulation.cellSize-bloomSize, y*Simulation.cellSize-bloomSize,
+                    Simulation.cellSize+bloomSize+bloomSize, Simulation.cellSize+bloomSize+bloomSize, null);
+
         } else {
             g.setColor(GameColor.GRID.getColor());
             g.drawRect((x * Simulation.cellSize), (y * Simulation.cellSize), Simulation.cellSize, Simulation.cellSize);

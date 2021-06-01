@@ -1,10 +1,9 @@
 package de.IchMagOmasKekse.simulation.generation;
 
+import de.IchMagOmasKekse.simulation.Cell;
 import de.IchMagOmasKekse.GameColor;
-import de.IchMagOmasKekse.GameLoop;
 import de.IchMagOmasKekse.GamePlay;
 import de.IchMagOmasKekse.Settings;
-import de.IchMagOmasKekse.simulation.Cell;
 import de.IchMagOmasKekse.simulation.Simulation;
 import de.IchMagOmasKekse.ui.UI;
 

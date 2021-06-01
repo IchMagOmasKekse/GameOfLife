@@ -40,6 +40,13 @@ public class TextureAtlas {
 		textures.put("play_pause", loadImage("/play_pause.png"));
 		textures.put("disabled_play_pause", loadImage("/disabled_play_pause.png"));
 		textures.put("button", loadImage("/button.png"));
+		textures.put("cell_bloom_overlap", loadImage("/cell_bloom_overlap.png"));
+		textures.put("cell_baby", loadImage("/cell_baby.png"));
+		textures.put("cell_kind", loadImage("/cell_kind.png"));
+		textures.put("cell_jugendlich", loadImage("/cell_jugendlich.png"));
+		textures.put("cell_adult", loadImage("/cell_adult.png"));
+		textures.put("cell_reif", loadImage("/cell_reif.png"));
+		textures.put("cell_rentner", loadImage("/cell_rentner.png"));
 
 		if(textures.size() < 10) System.out.println("---------- " + textures.size() + " Texturen geladen ----------");
 		else if(textures.size() > 10 && textures.size() < 100) System.out.println("--------- " + textures.size() + " Texturen geladen ----------");
