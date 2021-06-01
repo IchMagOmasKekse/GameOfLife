@@ -1,0 +1,8 @@
+#
+#
+# Error Code Format: [Error-Quell-Klasse] [Error Code] -> [Kurz Beschreibung]
+#
+#
+Error Codes:
+  455: 'Es wurden nicht alle Farben einer UI-Component definiert. Überprüfe die defineColors(); Methode der Error-Quell-Klasse.'
+  445: 'Die Font Variable in der UIC-Klasse wurde nicht definiert. Rufe im Konstruktor der Erb-Klasse defineFont() auf oder definiere die Font manuell.'
