@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Simulation {
 
-    public static final int cellSize = 5;
+    public static final int cellSize = 15;
     public static boolean start = false, isGenerated = false;
     public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0, currentlyLiving = 0, oldestCell = 0;
     public static TextureAtlas textureAtlas;
@@ -24,6 +24,9 @@ public class Simulation {
 
     public static boolean render(Graphics g) {
         GenerationManager.render(g);
+        g.setColor(Color.BLUE);
+        g.drawLine((GameLoop.windowWidth-GameLoop.ui_offset) / 2, 0, (GameLoop.windowWidth-GameLoop.ui_offset) / 2, GameLoop.windowHeight);
+        g.drawLine(0, GameLoop.windowHeight / 2, (GameLoop.windowWidth-GameLoop.ui_offset), GameLoop.windowHeight / 2);
         return true;
     }
 

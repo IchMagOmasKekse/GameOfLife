@@ -71,7 +71,7 @@ public class Generation {
     }
 
     public void birthCellAt(int x, int y) {
-        if(!cells.get(x+"/"+y).isAlive()) {
+        if(cells.get(x+"/"+y) != null && !cells.get(x+"/"+y).isAlive()) {
             cells.get(x+"/"+y).birth();
             Simulation.currentlyLiving++;
         }

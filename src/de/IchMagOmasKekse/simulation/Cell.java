@@ -1,9 +1,7 @@
 package de.IchMagOmasKekse.simulation;
 
-
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-
 import de.IchMagOmasKekse.GameColor;
 import de.IchMagOmasKekse.Numbers;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
