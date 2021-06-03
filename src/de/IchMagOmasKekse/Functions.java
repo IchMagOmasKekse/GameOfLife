@@ -1,7 +1,6 @@
 package de.IchMagOmasKekse;
 
 import de.IchMagOmasKekse.simulation.Simulation;
-import de.IchMagOmasKekse.simulation.generation.GenerationManager;
 import de.IchMagOmasKekse.ui.UI;
 
 public class Functions {

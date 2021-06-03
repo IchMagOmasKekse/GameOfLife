@@ -1,7 +1,5 @@
 package de.IchMagOmasKekse.simulation;
 
-import de.IchMagOmasKekse.Chat;
-
 import java.awt.image.BufferedImage;
 
 public class AgeManager {

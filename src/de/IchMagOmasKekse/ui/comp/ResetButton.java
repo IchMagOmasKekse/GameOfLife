@@ -1,11 +1,9 @@
 package de.IchMagOmasKekse.ui.comp;
 
-import de.IchMagOmasKekse.Chat;
-import de.IchMagOmasKekse.GameColor;
-import de.IchMagOmasKekse.simulation.Simulation;
-
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
+
+import de.IchMagOmasKekse.simulation.Simulation;
 
 public class ResetButton extends UICButton {
 

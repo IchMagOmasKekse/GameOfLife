@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Simulation {
 
-    public static final int cellSize = 10;
+    public static final int cellSize = 5;
     public static boolean start = false, isGenerated = false;
     public static int xAmountOfCells = 0, yAmountOfCells = 0, generations = 0, currentlyLiving = 0, oldestCell = 0;
     public static TextureAtlas textureAtlas;

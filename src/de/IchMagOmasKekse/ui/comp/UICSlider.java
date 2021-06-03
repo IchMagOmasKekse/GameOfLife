@@ -1,16 +1,15 @@
 package de.IchMagOmasKekse.ui.comp;
 
-import de.IchMagOmasKekse.Chat;
-import de.IchMagOmasKekse.GameLoop;
-import de.IchMagOmasKekse.Settings;
-import de.IchMagOmasKekse.ui.UIC;
-import de.IchMagOmasKekse.ui.UICNames;
-import javafx.scene.control.Slider;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+
+import de.IchMagOmasKekse.GameLoop;
+import de.IchMagOmasKekse.ui.UIC;
+import de.IchMagOmasKekse.ui.UICNames;
 
 public class UICSlider extends UIC {
 

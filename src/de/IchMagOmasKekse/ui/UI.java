@@ -41,6 +41,11 @@ public class UI {
 
         GameSpeedSlider slider = new GameSpeedSlider("Geschwindigkeit", 130, 25, 200, 3, 1, 60, UICSlider.SliderType.DEFAULT_50);
         canvas.add(slider);
+        
+        UICItemList itemList = new UICItemList(0, 0, 400, 500, "Zellen-Muster");
+        itemList.setDynamicCoordinates(true, true);
+        itemList.setDynamicCoordOffset(GameLoop.windowWidth, 140);
+        canvas.add(itemList);
     }
 
     public static enum GameState {

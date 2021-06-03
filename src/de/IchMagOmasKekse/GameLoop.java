@@ -1,16 +1,23 @@
 package de.IchMagOmasKekse;
 
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+
 import de.IchMagOmasKekse.simulation.Simulation;
 import de.IchMagOmasKekse.ui.UICHandler;
-
-import java.awt.*;
-import java.awt.image.BufferStrategy;
 
 public class GameLoop extends Canvas implements Runnable {
 
 
 
-    /* de.IchMagOmasKekse.Window */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/* de.IchMagOmasKekse.Window */
     public static int windowWidth = 700; // Default 1200
     public static int halfWindowWidth = windowWidth / 2;
     public static int windowHeight = 500; // Default 900
@@ -19,10 +26,12 @@ public class GameLoop extends Canvas implements Runnable {
 
     private boolean isRunning = false;
     private boolean isReadyToRender = false;
-    private boolean isPaused = false; //Ist das Spiel pausiert?
+    @SuppressWarnings("unused")
+	private boolean isPaused = false; //Ist das Spiel pausiert?
     public static boolean isLegalTick = false; //Ist der aktuelle tick auf TickSpeed Höhe ?
     private static int fps = 0;
-    private int maxFps = 120;
+    @SuppressWarnings("unused")
+	private int maxFps = 120;
     private Thread thread;
     private Window window;
     public String windowTitle = "FPS WORLDSIZE GEN LIVING OLDEST"; // Replacements
@@ -152,7 +161,6 @@ public class GameLoop extends Canvas implements Runnable {
             return false;
         }
         Graphics g = bs.getDrawGraphics();
-        Graphics2D g2d = (Graphics2D) g;
 
         g.setColor(GameColor.BACKGROUND.getColor());
         g.fillRect(0, 0, windowWidth, windowHeight);

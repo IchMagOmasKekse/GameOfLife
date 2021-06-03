@@ -1,13 +1,12 @@
 package de.IchMagOmasKekse.ui;
 
-import de.IchMagOmasKekse.Chat;
-import de.IchMagOmasKekse.Settings;
-
-import java.awt.*;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.HashMap;
+
+import de.IchMagOmasKekse.Chat;
 
 public class UICHandler {
 

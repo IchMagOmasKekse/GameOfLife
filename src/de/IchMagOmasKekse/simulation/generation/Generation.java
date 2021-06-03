@@ -2,6 +2,7 @@ package de.IchMagOmasKekse.simulation.generation;
 
 import de.IchMagOmasKekse.simulation.Cell;
 import de.IchMagOmasKekse.simulation.Simulation;
+import de.IchMagOmasKekse.ui.UI;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -65,6 +66,7 @@ public class Generation {
     }
 
     public void killAll() {
+    	if(UI.gstate == UI.GameState.IN_GAME) Simulation.pauseGame();
         for(Cell cell : cells.values()) cell.die();
     }
 

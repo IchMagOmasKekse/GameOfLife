@@ -17,7 +17,9 @@ public enum GameColor {
     UIC_SELECTED(new Color(189, 231, 255, 255)),
     UIC_HIGHLIGHT(new Color(176, 222, 255, 50)),
     UIC_FORECOLOR(new Color(0, 0, 0, 255)),
-    PAUSED_BLACK(new Color(0, 0, 0, 50));
+    PAUSED_BLACK(new Color(0, 0, 0, 50)),
+    UIC_ITEM_LIST_ITEM_BACKGROUND(new Color(50, 50, 50, 255)),
+	UIC_ITEM_LIST_ITEM_HIGHLIGHTED(new Color(70, 70, 70, 255));
 
     int r, g, b, a;
     Color color;

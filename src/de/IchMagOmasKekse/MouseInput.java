@@ -1,19 +1,18 @@
 package de.IchMagOmasKekse;
 
-import de.IchMagOmasKekse.simulation.Simulation;
-import de.IchMagOmasKekse.simulation.generation.GenerationManager;
-import de.IchMagOmasKekse.ui.UICHandler;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
+import de.IchMagOmasKekse.simulation.Simulation;
+import de.IchMagOmasKekse.simulation.generation.GenerationManager;
+import de.IchMagOmasKekse.ui.UICHandler;
+
 public class MouseInput extends MouseAdapter {
 
     private ConcurrentLinkedDeque<Integer> pressedButtons = new ConcurrentLinkedDeque<Integer>();
     private int mx = 0, my = 0;
-    private boolean convertToGrid = true;
     public static long lastClick = 0L;
 
 

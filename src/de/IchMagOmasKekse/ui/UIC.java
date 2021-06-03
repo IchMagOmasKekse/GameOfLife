@@ -39,6 +39,7 @@ public abstract class UIC {
         this.width = width;
         this.height = height;
         this.text = "T-Text";
+        setup();
     }
 
     public UIC(String systemName, int x, int y, int width, int height, String text) {
@@ -49,6 +50,7 @@ public abstract class UIC {
         this.width = width;
         this.height = height;
         this.text = text;
+        setup();
     }
 
     public abstract void defineColors();
@@ -177,6 +179,7 @@ public abstract class UIC {
 
     protected void drawRect(Graphics g) {
         int i = anima_clicked_cooldown; // Offset of clicking animation
+        Color c = g.getColor();
         if (texture == null) {
             if (!enabled) g.setColor(c_disabled);
             g.setColor(c_infill);
@@ -199,6 +202,8 @@ public abstract class UIC {
             if (!roundRect) g.fillRect(x + i, y + i, width - i - i, height - i - i);
             else g.fillRoundRect(x + i, y + i, width - i - i, height - i - i, rounding, rounding);
         }
+        
+        g.setColor(c);
     }
 
     protected void defineColorsToDefault() {
@@ -209,6 +214,9 @@ public abstract class UIC {
         c_highlighted = GameColor.UIC_HIGHLIGHT.getColor();
         c_forecolor = GameColor.UIC_FORECOLOR.getColor();
         c_disabled = GameColor.UIC_DISABLED.getColor();
+    }
+    protected void defineFontToDefault() {
+    	font = GameFont.DEFAULT.getFont();
     }
 
     public void setText(String text) {
@@ -341,7 +349,6 @@ public abstract class UIC {
     public void addPosition(int x, int y) {
         this.x += x;
         this.y += y;
-        Chat.sendConsoleMessage("AddPosition: " + x + "/" + y);
     }
 
     public void applyTextAntialiasing(boolean apply) {

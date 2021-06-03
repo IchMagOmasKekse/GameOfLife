@@ -1,12 +1,12 @@
 package de.IchMagOmasKekse.simulation;
 
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
 import de.IchMagOmasKekse.GameColor;
 import de.IchMagOmasKekse.Numbers;
 import de.IchMagOmasKekse.simulation.generation.GenerationManager;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Cell {
 
@@ -14,9 +14,8 @@ public class Cell {
     private int age = 0;
     private int maxAge;
     private int x, y;
-    private Color color = Color.WHITE;
     public static BufferedImage cellImg;
-    private int bloomSize = 10;
+    private int bloomSize = Simulation.cellSize;
 
     public Cell(int x, int y) {
         this.x = x;

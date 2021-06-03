@@ -1,13 +1,13 @@
 package de.IchMagOmasKekse.ui.comp;
 
-import de.IchMagOmasKekse.Chat;
-import de.IchMagOmasKekse.ui.UIC;
-import de.IchMagOmasKekse.ui.UICNames;
-
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
+
+import de.IchMagOmasKekse.ui.UIC;
+import de.IchMagOmasKekse.ui.UICNames;
 
 public class UICText extends UIC {
 
